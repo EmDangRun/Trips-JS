@@ -1,0 +1,8 @@
+1 . Enter + Keyuppress
+$(document).ready(function(){
+    $("input").on('click keypress',function(e){
+      if(e.which == 13 || e.type == 'click'){  
+          //Enter is key 13
+      }  
+    });
+});
