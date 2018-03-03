@@ -55,30 +55,25 @@ html, body {
 }
 ------------------------------------
 Javascript:
-function initMap() {
-  var latitude , longitude;
+function getMylocation(latitude , longitude) {
   function success(position) {
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;
-
+    var myLatLng = {lat: latitude, lng: longitude};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 17,
+      center: myLatLng
+    });
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+    });
   }
-    console.log('--')
-    console.log(latitude);
-    console.log(longitude);
   function error() {
     return;
   }
   navigator.geolocation.getCurrentPosition(success, error);
-    console.log(latitude);
-    console.log(longitude);
-  var myLatLng = {lat: 21.0355395, lng: 105.7551865};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 17,
-    center: myLatLng
-  });
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
+
+  
 }
