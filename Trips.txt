@@ -22,3 +22,63 @@ transform(str: any, args?: any): any {
     str = str.trim(); 
     return str;
 }
+3.Google Map Marker and Curren location
+HTML:
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <button onclick="initMap()">Click</button>
+  <div id="map"></div>
+  <!-- Replace the value of the key parameter with your own API key. -->
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt-xbfj1vFXgSfx4uDbkDShq2dKMdnW0U">
+  </script>
+</body>
+</html>
+-----------------------------------	
+CSS:
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+------------------------------------
+Javascript:
+function initMap() {
+  var latitude , longitude;
+  function success(position) {
+    latitude  = position.coords.latitude;
+    longitude = position.coords.longitude;
+
+  }
+    console.log('--')
+    console.log(latitude);
+    console.log(longitude);
+  function error() {
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(success, error);
+    console.log(latitude);
+    console.log(longitude);
+  var myLatLng = {lat: 21.0355395, lng: 105.7551865};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 17,
+    center: myLatLng
+  });
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
