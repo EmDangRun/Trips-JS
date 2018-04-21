@@ -1,0 +1,19 @@
+ReactJS
+1.Call Method from parent to child 
+import React from "react";
+import { render } from "react-dom";
+import Hello from "./Hello";
+
+export default class App extends React.Component {
+
+  render() {
+    return (
+      <div>
+        <button onClick={() => console.log(this.child)}>Click</button>
+        <Hello ref={current => { this.child = current; }} />
+      </div>
+    );
+  }
+}
+
+render(<App />, document.getElementById("root"));
