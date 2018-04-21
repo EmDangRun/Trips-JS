@@ -17,3 +17,31 @@ export default class App extends React.Component {
 }
 
 render(<App />, document.getElementById("root"));
+2.Pass Data from Parent to Child 
+import React from "react";
+
+export default class Hello extends React.Component {
+  render() {
+    return (
+      <div>
+        <button onClick={this.props.handle}>Click</button>
+      </div>
+    );
+  }
+}
+
+
+export default class App extends React.Component {
+  Click = () => {
+    console.log("ok");
+  };
+  render() {
+    return (
+      <div>
+        <Hello handle={this.Click} />
+      </div>
+    );
+  }
+}
+
+render(<App />, document.getElementById("root"));
