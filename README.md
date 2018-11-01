@@ -1,6 +1,7 @@
 # Trips-JS
 Ok
-let query = {
+<pre>
+  let query = {
   a: 1,
   c: 3,
   e: 5,
@@ -21,3 +22,4 @@ var queryString = Object.keys(query).map(key => {
 }
 ).join('');
 console.log('?' + queryString)
+</pre>
